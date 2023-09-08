@@ -1,5 +1,7 @@
 import discord
 import random
+import os
+import requests
 from discord.ext import commands
 from googletrans import Translator
 
@@ -87,4 +89,27 @@ async def ask(ctx, lang_from, lang_to, *, text):
     except Exception as e:
         await ctx.send(f"Terjadi kesalahan saat melakukan terjemahan: {e}")
 
-bot.run('token_bot')
+@bot.command()
+async def meme(ctx):
+    daftar_gambar = os.listdir('images')
+    gambar = random.choice(daftar_gambar)
+    with open(f'images/{gambar}', 'rb') as f:
+        # Mari simpan file perpustakaan/library Discord yang dikonversi dalam variabel ini!
+        picture = discord.File(f)
+    # Kita kemudian dapat mengirim file ini sebagai tolok ukur!
+    await ctx.send(file=picture)
+    
+def get_duck_image_url():    
+    url = 'https://randomfox.ca/floof/'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
+
+
+@bot.command('duck')
+async def duck(ctx):
+    '''Setelah kita memanggil perintah bebek (duck), program akan memanggil fungsi get_duck_image_url'''
+    image_url = get_duck_image_url()
+    await ctx.send(image_url)
+    
+bot.run('MASUKAN TOKEN BOT KAMU DISINI!')
