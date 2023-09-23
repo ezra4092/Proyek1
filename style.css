@@ -1,0 +1,42 @@
+body {
+    font-family: Inter, sans-serif;
+    background-color: #5988FF;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: left;
+}
+
+img {
+    width: 25%;
+    height: auto;
+    float: left; 
+    padding-right: 20px; 
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+ol {
+    font-size: 18px;
+    padding: 5px;
+    line-height: 1.6;
+    text-align: left;
+    margin-left: 20px;
+}
+/* 
+ol li {
+    margin-bottom: 10px;
+} */
